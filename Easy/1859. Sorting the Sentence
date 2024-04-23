@@ -29,6 +29,8 @@ Follow up: Suppose there are lots of incoming s, say s1, s2, ..., sk where k >= 
 
 ## Code:
 - java
+
+```java
 import java.util.Scanner;
 class Main
 {
@@ -52,3 +54,4 @@ class Main
         System.out.print(result);
     }
 }
+```
