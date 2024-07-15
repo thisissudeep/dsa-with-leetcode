@@ -47,23 +47,39 @@ Constraints:
 
 ## Code:
 ``` java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+
 
 class Solution {
-    // Function to check whether a Binary Tree is BST or not.
     boolean bool;
-     boolean isBST(Node root) {
+     public boolean isValidBST(TreeNode root) {
+        if(root.left==null && root.right==null) return true;
          bool=true;
-         checkBST(root);
+         isBST(root);
          return bool;
      }
-     
-    int lastLarge=Integer.MIN_VALUE;
-    void checkBST(Node root) {
+    
+    long lastLarge=Long.MIN_VALUE;
+    void isBST(TreeNode root) {
         if(root==null) return;
         
         if(bool) isBST(root.left);
         
-        if(lastLarge<root.data) lastLarge=root.data;
+        if(lastLarge<root.val) lastLarge=root.val;
         else bool=false;
         
         if(bool) isBST(root.right);
